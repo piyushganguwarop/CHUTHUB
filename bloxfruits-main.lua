@@ -61,6 +61,13 @@ vim1 = ok1 and vim1 or nil
 local ok2, vim2 = pcall(game.GetService, game, "VirtualUser")
 vim2 = ok2 and vim2 or nil
 
+local function SafeCall(obj, method, ...)
+    if obj and obj[method] then
+        return pcall(obj[method], obj, ...)
+    end
+    return false
+end
+
 -- Script state variables
 TeamSelf = plr.Team
 BringConnections = {}
