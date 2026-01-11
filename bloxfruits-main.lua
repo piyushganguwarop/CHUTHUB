@@ -60,6 +60,12 @@ vim1 = ok1 and vim1 or nil
 
 local ok2, vim2 = pcall(game.GetService, game, "VirtualUser")
 vim2 = ok2 and vim2 or nil
+-- SAFE KEY PRESS (ANTI-NIL)
+local function PressKey(key)
+    if not vim1 then return end
+    vim1:SendKeyEvent(true, key, false, game)
+    vim1:SendKeyEvent(false, key, false, game)
+end
 
 local function SafeCall(obj, method, ...)
     if obj and obj[method] then
@@ -613,74 +619,74 @@ Useskills = function(L_58_arg0, L_59_arg1)
 		weaponSc("Melee")
 		if L_60_[2] == "Z" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "Z", false, game)
-			vim1:SendKeyEvent(false, "Z", false, game)
+			PressKey("Z")
+			PressKey("Z")
 			end
 		elseif L_60_[2] == "X" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "X", false, game)
-			vim1:SendKeyEvent(false, "X", false, game)
+			PressKey("X")
+			PressKey("X")
 			end
 		elseif L_60_[2] == "C" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "C", false, game)
-			vim1:SendKeyEvent(false, "C", false, game)
+			PressKey("C")
+			PressKey("C")
 			end
 		end
 	elseif L_60_[3] == "Sword" then
 		weaponSc("Sword")
 		if L_60_[2] == "Z" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "Z", false, game)
-			vim1:SendKeyEvent(false, "Z", false, game)
-			end
+			PressKey("Z")
+			PressKey("Z")
+		end
 		elseif L_60_[2] == "X" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "X", false, game)
-			vim1:SendKeyEvent(false, "X", false, game)
+			PressKey("X")
+			PressKey("X")
 			end
 		end
 	elseif L_60_[3] == "Blox Fruit" then
 		weaponSc("Blox Fruit")
 		if L_60_[2] == "Z" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "Z", false, game)
-			vim1:SendKeyEvent(false, "Z", false, game)
+			PressKey("Z")
+			PressKey("Z")
 			end
 		elseif L_60_[2] == "X" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "X", false, game)
-			vim1:SendKeyEvent(false, "X", false, game)
+			PressKey("X")
+			PressKey("X")
 			end
 		elseif L_60_[2] == "C" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "C", false, game)
-			vim1:SendKeyEvent(false, "C", false, game)
+			PressKey("C")
+			PressKey("C")
 			end
 		elseif L_60_[2] == "V" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "V", false, game)
-			vim1:SendKeyEvent(false, "V", false, game)
+			PressKey("V")
+			PressKey("V")
 			end
 		end
 	elseif L_60_[3] == "Gun" then
 		weaponSc("Gun")
 		if L_60_[2] == "Z" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "Z", false, game)
-			vim1:SendKeyEvent(false, "Z", false, game)
+			PressKey("Z")
+			PressKey("Z")
 			end
 		elseif L_60_[2] == "X" then
 			if vim1 then
-			vim1:SendKeyEvent(true, "X", false, game)
-			vim1:SendKeyEvent(false, "X", false, game)
+			PressKey("X")
+			PressKey("X")
 			end
 		end
 	end
 	if L_60_[3] == "nil" and L_60_[2] == "Y" then
 		if vim1 then
-		vim1:SendKeyEvent(true, "Y", false, game)
-		vim1:SendKeyEvent(false, "Y", false, game)
+		PressKey("Y")
+		PressKey("Y")
 		end
 	end
 end
