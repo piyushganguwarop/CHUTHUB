@@ -612,52 +612,76 @@ Useskills = function(L_58_arg0, L_59_arg1)
 	if L_60_[3] == "Melee" then
 		weaponSc("Melee")
 		if L_60_[2] == "Z" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "Z", false, game)
 			vim1:SendKeyEvent(false, "Z", false, game)
+			end
 		elseif L_60_[2] == "X" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "X", false, game)
 			vim1:SendKeyEvent(false, "X", false, game)
+			end
 		elseif L_60_[2] == "C" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "C", false, game)
 			vim1:SendKeyEvent(false, "C", false, game)
+			end
 		end
 	elseif L_60_[3] == "Sword" then
 		weaponSc("Sword")
 		if L_60_[2] == "Z" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "Z", false, game)
 			vim1:SendKeyEvent(false, "Z", false, game)
+			end
 		elseif L_60_[2] == "X" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "X", false, game)
 			vim1:SendKeyEvent(false, "X", false, game)
+			end
 		end
 	elseif L_60_[3] == "Blox Fruit" then
 		weaponSc("Blox Fruit")
 		if L_60_[2] == "Z" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "Z", false, game)
 			vim1:SendKeyEvent(false, "Z", false, game)
+			end
 		elseif L_60_[2] == "X" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "X", false, game)
 			vim1:SendKeyEvent(false, "X", false, game)
+			end
 		elseif L_60_[2] == "C" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "C", false, game)
 			vim1:SendKeyEvent(false, "C", false, game)
+			end
 		elseif L_60_[2] == "V" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "V", false, game)
 			vim1:SendKeyEvent(false, "V", false, game)
+			end
 		end
 	elseif L_60_[3] == "Gun" then
 		weaponSc("Gun")
 		if L_60_[2] == "Z" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "Z", false, game)
 			vim1:SendKeyEvent(false, "Z", false, game)
+			end
 		elseif L_60_[2] == "X" then
+			if vim1 then
 			vim1:SendKeyEvent(true, "X", false, game)
 			vim1:SendKeyEvent(false, "X", false, game)
+			end
 		end
 	end
 	if L_60_[3] == "nil" and L_60_[2] == "Y" then
+		if vim1 then
 		vim1:SendKeyEvent(true, "Y", false, game)
 		vim1:SendKeyEvent(false, "Y", false, game)
+		end
 	end
 end
 L_1_[96] = getrawmetatable(game)
