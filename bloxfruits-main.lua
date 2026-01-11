@@ -329,10 +329,11 @@ L_1_[4]["Alive"] = function(L_10_arg0)
 	L_11_[3] = L_11_[2]:FindFirstChild("Humanoid")
 	return L_11_[3] and L_11_[3]["Health"] > 0
 end
-L_1_[4]["Pos"] = function(L_12_arg0, L_13_arg1)
-	local L_14_ = {}
-	L_14_[1], L_14_[2] = L_12_arg0, L_13_arg1
-	return (Root["Position"] - mode["Position"])["Magnitude"] <= L_14_[2]
+L_1_[4]["Pos"] = function(enemy, range)
+    if not enemy then return false end
+    local hrp = enemy:FindFirstChild("HumanoidRootPart")
+    if not hrp then return false end
+    return (Root.Position - hrp.Position).Magnitude <= range
 end
 L_1_[4]["Dist"] = function(L_15_arg0, L_16_arg1)
 	local L_17_ = {}
