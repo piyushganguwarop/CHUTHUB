@@ -22,51 +22,65 @@ if LocalPlayer and not LocalPlayer.Character then
 end
 
 --script starts here---
+-- ==============================
+-- L_1_ CORE (FINAL – CORRECT)
+-- ==============================
+
 local L_1_ = {}
-L_1_[2] = table["concat"]
-do
-	plr.CharacterAdded:Connect(function(char)
+L_1_[2] = table.concat
+
+-- Services
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Stats = game:GetService("Stats")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Player
+local plr = Players.LocalPlayer
+
+-- Wait for character safely
+if not plr.Character then
+    plr.CharacterAdded:Wait()
+end
+
+local Character = plr.Character
+local Root = Character:WaitForChild("HumanoidRootPart")
+local Energy = Character:WaitForChild("Energy"):WaitForChild("Value")
+
+-- Rebind on respawn (IMPORTANT)
+plr.CharacterAdded:Connect(function(char)
+    Character = char
     Root = char:WaitForChild("HumanoidRootPart")
     Energy = char:WaitForChild("Energy"):WaitForChild("Value")
 end)
 
-	ply = game:GetService("Players")
-    plr = ply.LocalPlayer
-
--- wait for character safely
-    if not plr.Character then
-    plr.CharacterAdded:Wait()
-    end
-    Root = plr.Character:WaitForChild("HumanoidRootPart")
-
-    replicated = game:GetService("ReplicatedStorage")
-
 -- SAFE exploit services
-    local ok1, vim1 = pcall(game.GetService, game, "VirtualInputManager")
-    vim1 = ok1 and vim1 or nil
+local ok1, vim1 = pcall(game.GetService, game, "VirtualInputManager")
+vim1 = ok1 and vim1 or nil
 
-    local ok2, vim2 = pcall(game.GetService, game, "VirtualUser")
-    vim2 = ok2 and vim2 or nil
+local ok2, vim2 = pcall(game.GetService, game, "VirtualUser")
+vim2 = ok2 and vim2 or nil
 
-	TeamSelf = plr["Team"]
-	RunSer = game:GetService("RunService")
-	Stats = game:GetService("Stats")
-	Energy = plr.Character:WaitForChild("Energy"):WaitForChild("Value")
-	BringConnections = {}
-	BossList = {}
-	MaterialList = {}
-	NPCList = {}
-	shouldTween = false
-	SoulGuitar = false
-	KenTest = true
-	debug = false
-	Brazier1 = false
-	Brazier2 = false
-	Brazier3 = false
-	Sec = .1
-	ClickState = 0
-	Num_self = 25
-end
+-- Script state variables
+TeamSelf = plr.Team
+BringConnections = {}
+BossList = {}
+MaterialList = {}
+NPCList = {}
+
+shouldTween = false
+SoulGuitar = false
+KenTest = true
+debug = false
+
+Brazier1 = false
+Brazier2 = false
+Brazier3 = false
+
+Sec = 1
+ClickState = 0
+Num_self = 25
+
 repeat
 	local L_2_ = {}
 	L_2_[2] = (plr["PlayerGui"]:WaitForChild("Main")):WaitForChild("Loading") and game:IsLoaded()
