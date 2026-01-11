@@ -1,24 +1,57 @@
+-- === SAFETY PATCH (DO NOT REMOVE) ===
 
+local function SafeGetService(name)
+    local s
+    pcall(function()
+        s = game:GetService(name)
+    end)
+    return s
+end
 
---DEOBFUSCATED BY _NYZLINH
+local function SafeRequire(module)
+    local ok, result = pcall(require, module)
+    if ok then return result end
+    return nil
+end
+
+local Players = SafeGetService("Players")
+local LocalPlayer = Players and Players.LocalPlayer
+
+if LocalPlayer and not LocalPlayer.Character then
+    LocalPlayer.CharacterAdded:Wait()
+end
+
+--script starts here---
 local L_1_ = {}
 L_1_[2] = table["concat"]
 do
-	ply = game["Players"]
-	plr = ply["LocalPlayer"]
-	Root = plr["Character"]["HumanoidRootPart"]
-	replicated = game:GetService("ReplicatedStorage")
-	Lv = game["Players"]["LocalPlayer"]["Data"]["Level"]["Value"]
-	TeleportService = game:GetService("TeleportService")
-	TW = game:GetService("TweenService")
-	Lighting = game:GetService("Lighting")
-	Enemies = workspace["Enemies"]
-	vim1 = game:GetService("VirtualInputManager")
-	vim2 = game:GetService("VirtualUser")
+	plr.CharacterAdded:Connect(function(char)
+    Root = char:WaitForChild("HumanoidRootPart")
+    Energy = char:WaitForChild("Energy"):WaitForChild("Value")
+end)
+
+	ply = game:GetService("Players")
+    plr = ply.LocalPlayer
+
+-- wait for character safely
+    if not plr.Character then
+    plr.CharacterAdded:Wait()
+    end
+    Root = plr.Character:WaitForChild("HumanoidRootPart")
+
+    replicated = game:GetService("ReplicatedStorage")
+
+-- SAFE exploit services
+    local ok1, vim1 = pcall(game.GetService, game, "VirtualInputManager")
+    vim1 = ok1 and vim1 or nil
+
+    local ok2, vim2 = pcall(game.GetService, game, "VirtualUser")
+    vim2 = ok2 and vim2 or nil
+
 	TeamSelf = plr["Team"]
 	RunSer = game:GetService("RunService")
 	Stats = game:GetService("Stats")
-	Energy = plr["Character"]["Energy"]["Value"]
+	Energy = plr.Character:WaitForChild("Energy"):WaitForChild("Value")
 	BringConnections = {}
 	BossList = {}
 	MaterialList = {}
