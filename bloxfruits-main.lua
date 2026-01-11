@@ -34,6 +34,7 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local Stats = game:GetService("Stats")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local replicated = ReplicatedStorage
 
 -- Player
 local plr = Players.LocalPlayer
