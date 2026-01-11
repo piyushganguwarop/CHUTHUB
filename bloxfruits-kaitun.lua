@@ -1,14 +1,8 @@
---key system--
---[[
 
-YOUTUBE TUTORIAL: https://www.youtube.com/watch?v=Yb2GXlsTmNM
-MADE BY @uerd
-
-]]
 Config = {
-    api = "", 
-    service = "",
-    provider = ""
+    api = "cfdc4fbe-2493-450e-8945-591e2e3d74ce", 
+    service = "chut hub",
+    provider = "chub"
 
 }
 local function main()
